@@ -1,0 +1,7 @@
+ontró c{
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.allowGuestTaskControl": true,
+    "liveshare.languages.allowGuestCommandControl": true,
+    "liveshare.launcherClient": "visualStudioCode",
+    "liveshare.notebooks.allowGuestExecuteCells": true
+}
