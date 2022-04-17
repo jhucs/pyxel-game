@@ -1,12 +1,9 @@
-from dataclasses import asdict
 import pyxel
-import colliders
-
-GAME_DATA={"Title":"Oh no, its another pixel art game si queri cambialo!"}
+import colliders, background, proyectRef
 
 class App:
   def __init__(self):
-    pyxel.init(160, 120, title=GAME_DATA["Title"])
+    pyxel.init(proyectRef.Width, proyectRef.Height, title=proyectRef.Title)
     pyxel.run(self.update, self.draw)
 
   def update(self):
@@ -15,7 +12,8 @@ class App:
 
   def draw(self): 
     pyxel.cls(0)
-    pyxel.text(55, 41, "Hello uwu , Pyxel!", pyxel.frame_count % 16)
+    background.PrintAllStars()
+    #pyxel.text(55, 41, "Hello uwu , Pyxel!", pyxel.frame_count % 16)
 
 
 App()
