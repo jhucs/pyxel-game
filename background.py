@@ -6,10 +6,10 @@ starsCollection=[]
 
 def InitalizeStarCollection():
     for c in range(0,4):
-        starsCollection.append(Star(random.randint(0,proyectRef.Width),random.randint(0,proyectRef.Height),1,3,1))
+        starsCollection.append(Star(random.randint(0,proyectRef.width),random.randint(0,proyectRef.height),1,3,1))
         
     for c in range(0,7):
-        starsCollection.append(Star(random.randint(0,proyectRef.Width),random.randint(0,proyectRef.Height),0,2,0.5))
+        starsCollection.append(Star(random.randint(0,proyectRef.width),random.randint(0,proyectRef.height),0,2,0.5))
         
 
 def PrintAllStars():
@@ -27,6 +27,6 @@ class Star:
     def Update(self):
         pyxel.circ(self.x,self.y,self.radius,self.color)
         self.y = self.y + self.speed
-        if self.y > proyectRef.Height : self.y = -5
+        if self.y > proyectRef.height : self.y = -5
             
 InitalizeStarCollection()
