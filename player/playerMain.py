@@ -1,13 +1,19 @@
-import pyxel
+import pyxel 
+from player.playerBaseClasses import *
+
 
 class PlayerCore:
-    def __init__(self,x,y):
+    def __init__(self,x,y,wings,rocket):
         self.x = x
         self.y = y
+        self.maxTimeParticle = 5
+        self.wings = wings
+        self.rocket = rocket
 
     def DrawPlayer(self):
         pyxel.blt(self.x,self.y,0,0,0,16,16,0)
-        PWings.DrawWings(self.x,self.y)
+        self.wings.DrawWings(self.x,self.y)
+        self.rocket.DrawParticles(self.x,self.y)
 
     def InputController(self):
         if pyxel.btn(pyxel.KEY_D):
@@ -18,23 +24,11 @@ class PlayerCore:
             self.y = self.y - 1
         if pyxel.btn(pyxel.KEY_S):
             self.y = self.y + 1
-
-class PlayerWings:
-    def __init__(self,sx,sy):
-        self.sx = sx
-        self.sy = sy
-        self.x = 12 #unused
-        self.y = 5
+            
+        if pyxel.btnp(pyxel.KEY_J):
+            pass
+            
         
-    def DrawWings(self,px,py):
-        pyxel.blt(12+px,self.y+py,0,self.sx,self.sy,8,8,0) #right
-        pyxel.blt(-4+px,self.y+py,0,self.sx,self.sy,-8,8,0) #left
-        
-class PlayerRocket:
-    def __init__(self):
-        pass
 
-Player = PlayerCore(50,50)
-PWings = PlayerWings(16,0)
-
+Player = PlayerCore(50,50,PlayerWings(16,0),PlayerRocket())
 #16,0 to 23,7
