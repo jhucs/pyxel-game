@@ -1,3 +1,4 @@
+from turtle import speed
 import pyxel
 
 class PlayerWings:
@@ -44,4 +45,31 @@ class PlayerRocketParticle:
         else:
             self.RocketCore.PParticles.remove(self)
         
-            
+class PlayerShooter:
+    def __init__(self,color,damage,speed,rate):
+        self.color = color
+        self.damage = damage
+        self.speed = speed
+        self.rate = rate
+        self.bullets = []
+    
+    def Shoot(self,x,y):
+        self.bullets.append(PlayerBullet(self,self.damage,self.speed,x,y,self.color))
+        
+    def DrawBullets(self):
+        for blt in self.bullets:
+            blt.UpdateBullet()
+        
+class PlayerBullet:
+    def __init__(self,PSB,damage,speed,x,y,color):
+        self.PSB = PSB
+        self.damage = damage
+        self.speed = speed
+        self.x = x
+        self.y = y
+        self.color = color
+        
+    def UpdateBullet(self):
+        pyxel.rect(self.x,self.y,2,5,self.color)
+        pyxel.rect(self.x+12,self.y,2,5,self.color)
+        self.y -= self.speed
