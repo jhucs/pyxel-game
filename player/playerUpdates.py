@@ -25,3 +25,18 @@ class NormalRocketParticle(PlayerRocketParticle):
             pyxel.ellib(self.x+(self.aux/3), self.iniY + self.y, 10-self.aux,4-self.aux ,3)
         else:
             self.RocketCore.PParticles.remove(self)
+
+class NormalShooter(PlayerShooter):
+    def __init__(self):
+        super().__init__(1, NormalBullet)
+
+class NormalBullet(PlayerBullet):
+    def __init__(self,x,y):
+        super().__init__(1, 5, x, y, 7, self.DrawBullet, self.MovementBullet)
+    
+    def DrawBullet(self):
+        pyxel.rect(self.x,self.y,2,5,self.color)
+        pyxel.rect(self.x+12,self.y,2,5,self.color)
+    
+    def MovementBullet(self):
+        self.y -= self.speed

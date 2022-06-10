@@ -33,5 +33,5 @@ class Player:
             
         
 
-PlayerObj = Player(50,50,NormalCore(),NormalWings(),NormalRocket(),PlayerShooter(7,1,5,1))
+PlayerObj = Player(50,50,NormalCore(),NormalWings(),NormalRocket(),NormalShooter())
 #16,0 to 23,7

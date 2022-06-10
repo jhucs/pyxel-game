@@ -1,4 +1,3 @@
-import pyxel
 from colliders import *
 
 class PlayerCore:
@@ -51,30 +50,28 @@ class PlayerRocketParticle:
         self.DrawParticleFn(self)
         
 class PlayerShooter:
-    def __init__(self,color,damage,speed,rate):
-        self.color = color
-        self.damage = damage
-        self.speed = speed
+    def __init__(self,rate,playerBullet):
         self.rate = rate
         self.bullets = []
+        self.playerBullet = playerBullet
     
     def Shoot(self,x,y):
-        self.bullets.append(PlayerBullet(self,self.damage,self.speed,x,y,self.color))
+        self.bullets.append(self.playerBullet(x,y))
         
     def DrawBullets(self):
         for blt in self.bullets:
             blt.UpdateBullet()
         
 class PlayerBullet:
-    def __init__(self,PSB,damage,speed,x,y,color):
-        self.PSB = PSB
+    def __init__(self,damage,speed,x,y,color,DrawBullet,MovementBullet):
         self.damage = damage
         self.speed = speed
         self.x = x
         self.y = y
         self.color = color
+        self.DrawBullet = DrawBullet
+        self.MovementBullet = MovementBullet
         
     def UpdateBullet(self):
-        pyxel.rect(self.x,self.y,2,5,self.color)
-        pyxel.rect(self.x+12,self.y,2,5,self.color)
-        self.y -= self.speed
+        self.DrawBullet()
+        self.MovementBullet()
