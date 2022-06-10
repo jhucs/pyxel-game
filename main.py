@@ -1,5 +1,5 @@
 import pyxel
-import colliders, background, proyectRef
+import background, proyectRef
 import player.playerMain
 
 class App:
@@ -9,12 +9,12 @@ class App:
     pyxel.run(self.update, self.draw)
 
   def update(self):
-    player.playerMain.Player.InputController()
+    player.PlayerMain.Player.InputController()
 
   def draw(self): 
     pyxel.cls(0)
     background.PrintAllStars()
-    player.playerMain.Player.DrawPlayer()
+    player.PlayerMain.Player.DrawPlayer()
     #pyxel.text(55, 41, "Hello uwu , Pyxel!", pyxel.frame_count % 16)
 
 
