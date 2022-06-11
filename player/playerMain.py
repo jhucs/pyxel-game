@@ -1,5 +1,6 @@
 import pyxel 
 from player.playerUpdates import *
+import proyectRef
 
 
 class Player:
@@ -33,5 +34,5 @@ class Player:
             
         
 
-PlayerObj = Player(50,50,NormalCore(),NormalWings(),NormalRocket(),NormalShooter())
+PlayerObj = Player(proyectRef.width/2 - 9,proyectRef.height - 40,NormalCore(),NormalWings(),NormalRocket(),NormalShooter())
 #16,0 to 23,7

@@ -1,4 +1,5 @@
 from player.playerBaseClasses import *
+import math
 
 class NormalWings(PlayerWings):
     def __init__(self):
