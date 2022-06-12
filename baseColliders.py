@@ -41,4 +41,4 @@ class ColliderManager:
     PlayerObj = []
     
     def CheckCollider():
-        
+        pass
